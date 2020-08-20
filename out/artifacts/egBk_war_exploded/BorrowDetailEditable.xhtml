@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>Edit Borrow Detail</title> </h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h3 align="center">Edit borrow detail</h3>
+            <h:form>
+                <h:messages globalOnly="true" style="color:blue;margin:8px;" />
+                <h:dataTable value="#{borrowController.bodEditList}" var="bd"  border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Detail no"/>
+                        </f:facet>
+                        <h:outputText value="#{bd.dno}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Bor-Id"/>
+                        </f:facet>
+                        <h:outputText value="#{bd.BL.borId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="SerialNo-item name"/>
+                        </f:facet>
+                        <h:outputText value="#{bd.sno.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="No of items"/>
+                        </f:facet>
+                        <h:outputText value="#{bd.noOfItems}"/>
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Allowed No of items"/>
+                        </f:facet>
+                        <h:inputText value="#{borrowController.updatedNoOfItems}" />
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="price/item type"/>
+                        </f:facet>
+                        <h:outputText value="#{bd.pricePerItem}"/>
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Confirm-status"/>
+                        </f:facet>
+                        <h:commandButton value="Change" action="#{borrowController.changeAmount}">
+                            <f:param name="BDid" value="#{bd.dno}"/>
+                            <f:param name="BDAmount" value="#{borrowController.updatedNoOfItems}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+
+                <h:commandButton value="Save All" action="#{borrowController.saveChange}">
+                <ui:remove>
+                    <f:param name="BDid" value="#{bd.dno}"/>
+                    <f:param name="BDAmount" value="#{bd.noOfItems}"/>
+                </ui:remove>
+                </h:commandButton>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

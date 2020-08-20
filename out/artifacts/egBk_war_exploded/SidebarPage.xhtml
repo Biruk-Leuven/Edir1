@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value=""/>
+</f:view>
+<h:head> <title>My sidebar </title> </h:head>
+<h:body>
+    <table>
+
+        <td align="center" style="font-size: large">
+            <h:form>
+                <h:commandLink value="Home" action="LoginPage" style="color: green"/><br/><br/>
+                <h:commandLink value="Registration" action="MainReg" style="color: green"/><br/><br/>
+                <h:commandLink value="Borrow" action="ItemList" style="color: green"/><br/><br/>
+                <h:commandLink value="RequestList" action="#{borrowController.viewReqLists}" style="color: green"/><br/><br/>
+                <h:commandLink value="Return" action="ReturnMain" style="color: green"/><br/><br/>
+                <h:commandLink value="Messaging" action="MsgMain" style="color: green"/><br/><br/>
+                <h:commandLink value="Report" action="TimerTest" style="color: green"/><br/><br/>
+            </h:form>
+        </td>
+
+    </table>
+</h:body>
+</html>

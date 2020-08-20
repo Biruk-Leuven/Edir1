@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>Creates a new Coordinator</title></h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h3 align="center">Coordinator Registration Page</h3>
+            <h:form>
+                <h:messages globalOnly="true" style="color:red;margin:8px;" />
+                <h:panelGrid columns="2" >
+                   <ui:remove><h:outputLabel value="user Id : "/>
+                    <h:inputText id="uid" value="#{userController.c.userId}" >
+                    </h:inputText></ui:remove>
+                    <h:outputLabel value="Full Name : "/>
+                    <h:inputText id="ufn" value="#{userController.c.userFullName}" >
+                    </h:inputText>
+                    <h:outputLabel value="User Name :"/>
+                    <h:inputText id="un" value="#{userController.c.userName}" />
+                    <h:outputLabel value="Password : "/>
+                    <h:inputSecret  value="#{userController.c.password}">
+                    </h:inputSecret>
+                    <h:outputLabel value="Subcity : "/>
+                    <h:inputText id="sb" value="#{userController.ad.subCity}" >
+                    </h:inputText>
+                    <h:outputLabel value="House Number :"/>
+                    <h:inputText id="hn" value="#{userController.ad.houseNo}" required="true"/>
+
+                    <h:outputLabel value="Phone Number : "/>
+                    <h:inputText id="phoneId" value="#{userController.ph.phoneNo}">
+                    </h:inputText>
+                    <h:outputLabel value="addedPhones="/>
+                    <h:commandButton value="+"
+                                     action="#{userController.addPhoneToLists}" render="phoneId" />
+
+                    <h:outputLabel value="Allowance : "/>
+                    <h:inputText value="#{userController.c.allowance}">
+                    </h:inputText>
+                    <h:outputLabel value="Role : "/>
+                    <h:inputText value="#{userController.c.role}">
+                    </h:inputText>
+               <br/>
+                <h:commandButton value="Add New User"
+                                 action="#{userController.addNewUserCord}"/>
+
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>Item List</title> </h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h3 align="center">Item List Page</h3>
+            <h:form>
+                <h:dataTable value="#{itemController.itemList}" var="itm"  border="1">
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Item SNo"/>
+                        </f:facet>
+                        <h:outputText value="#{itm.serialNo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Item Category"/>
+                        </f:facet>
+                        <h:outputText value="#{itm.category}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Item Name"/>
+                        </f:facet>
+                        <h:outputText value="#{itm.name}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:link outcome="ItemReg.xhtml" value="Add new Item"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value=""/>
+</f:view>
+<h:head> <title>Creates a new Item</title></h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h3 align="center">Item Registration Page</h3>
+            <h:messages  infoStyle="color:blue" warnStyle="color:orange" errorStyle="color:red"/>
+            <h:form>
+
+                <h:panelGrid columns="2" >
+                    <ui:remove> <h:outputLabel value="Item Id : "/>
+                    <h:inputText id="iId" value="#{itemController.it.serialNo}" required="true">
+                    </h:inputText></ui:remove>
+
+                    <h:outputLabel value="Item Category :"/>
+                    <h:inputText id="iCat" value="#{itemController.it.category}" validator="#{itemController.checkCategory}"/>
+
+                    <h:outputLabel value="Item Name : "/>
+                    <h:inputText id="iName" value="#{itemController.it.name}" required="true" requiredMessage="item name is required">
+                    </h:inputText>
+
+                <br/>
+                <h:commandButton value="Add New Item"
+                                 action="#{itemController.addNewItem2}"/>
+            </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

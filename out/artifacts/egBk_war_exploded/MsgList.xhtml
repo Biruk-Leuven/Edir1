@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>Item List</title> </h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h3 align="center">Item List Page</h3>
+            <h:form>
+                <h:dataTable value="#{msgController.mList}" var="ml"  border="1">
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Msg No"/>
+                        </f:facet>
+                        <h:outputText value="#{ml.msgNo}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="content"/>
+                        </f:facet>
+                        <h:outputText value="#{ml.content}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Time"/>
+                        </f:facet>
+                        <h:outputText value="#{ml.msgTime}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Category"/>
+                        </f:facet>
+                        <h:outputText value="#{ml.msgCategory}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Msg-Details"/>
+                        </f:facet>
+                        <h:commandButton value="View-Msg" action="#{msgController.viewMsgContent}">
+                            <f:param name="id" value="#{ml.msgNo}"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

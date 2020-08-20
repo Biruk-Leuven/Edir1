@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>Creates a new Item</title></h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h1 align="center">prod Registration Page</h1>
+            <h:form>
+
+                <h:panelGrid columns="2" >
+                    <h:outputLabel value="prod Id : "/>
+                    <h:inputText id="sid" value="#{cart2Controller.pr.id}" >
+                    </h:inputText>
+                    <h:outputLabel value="prod name :"/>
+                    <h:inputText id="fn" value="#{cart2Controller.pr.name}" required="true"/>
+                    <h:outputLabel value="price : "/>
+                    <h:inputText value="#{cart2Controller.pr.price}">
+                    </h:inputText>
+                    <h:outputLabel value="mark : "/>
+                    <h:inputText value="#{cart2Controller.pr.mark}">
+                    </h:inputText>
+                    <br/>
+                    <h:commandButton value="Add to cart"
+                                     action="#{cart2Controller.addC}"/>
+                    <h:commandButton value="checkout"
+                                     action="#{cart2Controller.addP}"/>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

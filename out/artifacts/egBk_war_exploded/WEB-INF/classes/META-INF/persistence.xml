@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="EdirPersistenceUnit1">
+    <jta-data-source>jdbc/myEdirPool</jta-data-source>
+        <class>jva_Bean.ItemEntity</class>
+        <class>jva_Bean.CoordinatorEntity</class>
+        <class>jva_Bean.MemberEntity</class>
+        <class>jva_Bean.UsersEntity</class>
+        <class>jva_Bean.PhoneNoEntity</class>
+        <class>jva_Bean.BorrowListEntity</class>
+        <class>jva_Bean.BorrowDetailEntity</class>
+        <class>jva_Bean.ReturnListEntity</class>
+        <class>test1.ProdEntity</class>
+        <class>jva_Bean.MessageListEntity</class>
+
+
+        <properties>
+            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/dbEdir"/>
+            <property name="toplink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dbEdir"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/dbEdir"/>
+            <property name="openjpa.ConnectionDriverName" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/dbEdir"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
+</persistence>

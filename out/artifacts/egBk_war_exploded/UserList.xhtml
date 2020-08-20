@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>User List</title> </h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h1 align="center">User List Page</h1>
+            <h:form>
+                <h:dataTable value="#{userController.userList}" var="usr"  border="1">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="user SNo"/>
+                        </f:facet>
+                        <h:outputText value="#{usr.userId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Full name"/>
+                        </f:facet>
+                        <h:outputText value="#{usr.userFullName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="User Name"/>
+                        </f:facet>
+                        <h:outputText value="#{usr.userName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Subcity"/>
+                        </f:facet>
+                        <h:outputText value="#{usr.address.subCity}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="HouseNo"/>
+                        </f:facet>
+                        <h:outputText value="#{usr.address.houseNo}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:link outcome="MainReg.xhtml" value="Add new User"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

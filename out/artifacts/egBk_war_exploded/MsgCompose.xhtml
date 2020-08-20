@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
+<h:head> <title>Creates a new Item</title></h:head>
+<h:body>
+    <ui:composition template="index.xhtml">
+        <ui:define name="first">
+            <h3 align="center">Sending a msg Page</h3>
+            <h:form>
+                <h:messages style="color:red;margin:8px;" />
+                <h:panelGrid columns="2" >
+                    <h:outputLabel value="To (Role) : "/>
+
+                    <h:selectOneMenu value="--Select--">
+                        <f:selectItem itemValue="Members" itemLabel="Members" />
+                        <f:selectItem itemValue="Coordinators" itemLabel="Coordinators" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="Message :"/>
+                    <h:inputTextarea  value="#{SN.messageText}" required="true"/>
+
+                    <br/>
+                    <h:commandButton value="Send"
+                                     action="#{SN.sendMessage}"/>
+
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>
